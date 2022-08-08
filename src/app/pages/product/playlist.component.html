@@ -1,0 +1,95 @@
+<div class="container-fluid">
+
+	<div class=" row">
+		<div class="col col-lg-8">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Name</th>
+						<th scope="col">Description</th>
+            <th scope="col">Opcion</th>
+						<!--<th scope="col">Titulo</th>
+						<th scope="col">Artista</th>
+						<th scope="col">Album</th>
+						<th scope="col">Año</th>>-->
+					</tr>
+				</thead>
+        <tbody>
+          <tr *ngFor="let playlist of PlaylistData">
+            <th scope="row">{{playlist.id}}</th>
+            <th scope="row">{{playlist.name}}</th>
+            <th scope="row">{{playlist.description}}</th>
+            <td><button type="button" class="btn btn-danger" (click)="delete(playlist.name)">Borrar</button></td>
+          </tr>
+        </tbody>
+			</table>
+		</div>
+
+
+
+    <div class="col col-lg-4">
+      <label class="font-weight-bold text-center w-100  p-2">Crear Lista de Reproducción</label>
+      <form>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="name" [(ngModel)]="name" name="name">
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Description" [(ngModel)]="description" name="description">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-primary mt-2" (click)="save()" [disabled]="id">Guardar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="col col-lg-4">
+      <label class="font-weight-bold text-center w-100  p-2">Buscar Play List</label>
+      <form>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="nameFilter" [(ngModel)]="nameFilter" name="nameFilter">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-primary mt-2" (click)="loadByName()">Filtrar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col col-lg-4">
+      <label class="font-weight-bold text-center w-100  p-2">Resultados Busqueda Play List</label>
+      <form>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="nameFiltered" [(ngModel)]="nameFiltered" name="nameFiltered">
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="descriptionFilteres" [(ngModel)]="descriptionFilteres" name="descriptionFilteres">
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
